@@ -1,0 +1,19 @@
+{
+    "require": {
+        "php": "^8.0",
+        "ext-libxml": "*",
+        "ext-simplexml": "*",
+        "ext-dom": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.0",
+        "league/oauth2-client": "^2.6",
+        "ramsey/uuid": "^4.2",
+        "vlucas/phpdotenv": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "MaximoToLiveLocation\\": "MaximoToLiveLocation/"
+        }
+    }
+}
