@@ -144,7 +144,7 @@ class Connector {
      */
     public function pingLiveLocation(LiveLocationPing $ping): int
     {
-        $client = new Client(['base_uri' => sprintf($this->liveLocationPostUrl, 'dev1')]);
+        $client = new Client(['base_uri' => sprintf($this->liveLocationPostUrl, $_ENV['LM_ENV'])]);
 
         $request_headers = [
             "Content-Type" => "application/json",
@@ -166,9 +166,9 @@ class Connector {
     {
         $provider = new OAuth2Provider([
             'clientId'                => $_ENV['LM_AUTH_CLIENT_ID'],
-            'urlAuthorize'            => $_ENV['LM_AUTH_AUTHORIZE_URL'],
-            'urlAccessToken'          => $_ENV['LM_AUTH_TOKEN_URL'],
-            'urlResourceOwnerDetails' => $_ENV['LM_AUTH_RESOURCE_URL']
+            'urlAuthorize'            => sprintf($_ENV['LM_AUTH_AUTHORIZE_URL'], $_ENV['LM_ENV']),
+            'urlAccessToken'          => sprintf($_ENV['LM_AUTH_TOKEN_URL'], $_ENV['LM_ENV']),
+            'urlResourceOwnerDetails' => sprintf($_ENV['LM_AUTH_RESOURCE_URL'], $_ENV['LM_ENV'])
         ]);
 
         try {
